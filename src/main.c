@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:32:24 by tbornema          #+#    #+#             */
-/*   Updated: 2023/11/27 16:59:03 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:09:23 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	main(int argc, char *argv[])
 		open_window(&fractol);
 		mlx_mouse_hook(fractol.window, ft_mouse_hook, &fractol);
     	mlx_key_hook(fractol.window, ft_key_hook, &fractol);
-		
 		ft_render_fractal(&fractol);
 		mlx_loop(fractol.mlx);
 	}

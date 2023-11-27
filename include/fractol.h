@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:11:13 by tbornema          #+#    #+#             */
-/*   Updated: 2023/11/27 16:59:08 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:26:12 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 // Constants
 #define WIDTH 800
 #define HEIGHT 800
-#define MAX_ITER 400
+#define MAX_ITER 1000
 
 // EVENTS
 #define BASE_MOVE 0.0001

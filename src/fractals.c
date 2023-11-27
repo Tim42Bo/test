@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:19:51 by tbornema          #+#    #+#             */
-/*   Updated: 2023/11/27 16:54:40 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:08:36 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_render_fractal(t_fractol *fractol)
 	int			y;
 	int			color;
 	t_complex	c;
+	t_complex juliaC;
 
 	y = 0;
 	while (y < HEIGHT)
@@ -58,7 +59,13 @@ void	ft_render_fractal(t_fractol *fractol)
 		while (x < WIDTH)
 		{
 			c = ft_pixel_to_complexnumber(x, y, fractol);
-			color = ft_get_color(ft_mandelbrot(c, MAX_ITER));
+			if (ft_strncmp(fractol->name, "julia", 5) == 0)
+			{
+				juliaC = ft_pixel_to_complexnumber(fractol->julia_x, fractol->julia_y, fractol);
+                color = ft_get_color(ft_julia(c, juliaC, MAX_ITER));
+			}
+			else
+				color = ft_get_color(ft_mandelbrot(c, MAX_ITER));
 			mlx_pixel_put(fractol->mlx, fractol->window, x, y, color);
 			x++;
 		}
