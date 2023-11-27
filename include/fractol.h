@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:11:13 by tbornema          #+#    #+#             */
-/*   Updated: 2023/11/24 13:40:23 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:59:08 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,24 @@
 #include <X11/keysym.h> // Key symbols
 #include "../minilibx-linux/mlx.h" // MinilibX library
 
+
 // Constants
 #define WIDTH 800
 #define HEIGHT 800
 #define MAX_ITER 400
 
+// EVENTS
+#define BASE_MOVE 0.0001
+#define SCALE 0.1
+
+
 // Define colors
+#define NUMCOLORS 23
 #define BLACK 		0x000000
 #define WHITE       0xFFFFFF  // RGB(255, 255, 255)
 #define RED         0xFF0000  // RGB(255, 0, 0)
 #define GREEN       0x00FF00  // RGB(0, 255, 0)
 #define BLUE        0x0000FF  // RGB(0, 0, 255)
-// ... other color definitions ...
 #define MAGENTA_BURST   0xFF00FF  // A vibrant magenta
 #define LIME_SHOCK      0xCCFF00  // A blinding lime
 #define NEON_ORANGE     0xFF6600  // A blazing neon orange
@@ -74,6 +80,11 @@ typedef struct s_fractol
 {
     void *mlx; // Pointer to the mlx instance
     void *window; // Pointer to the window
+	double zoom; // Zoom function with mousewheel
+	double	julia_x;
+	double	julia_y;
+	char *name;
+	t_complex center;
     t_img imgage; // Image structure
     // ... other fractal-specific parameters ...
 } t_fractol;
@@ -81,9 +92,12 @@ typedef struct s_fractol
 // Function prototypes
 void	open_window(t_fractol *fractol);
 void ft_render_fractal(t_fractol *fractal);
-t_complex	ft_pixel_to_complexnumber(int x, int y);
-int	ft_get_color(int iter);
+t_complex	ft_pixel_to_complexnumber(int x, int y, t_fractol *fractol);
+int	ft_get_color(int depth);
 int	ft_mandelbrot(t_complex c, int max_iter);
+int ft_julia(t_complex z, t_complex c, int max_iter);
+int	ft_mouse_hook(int button, int x, int y, t_fractol *fractol);
+int ft_key_hook(int keycode, t_fractol *fractol);
 // ... other function prototypes ...
 
 #endif

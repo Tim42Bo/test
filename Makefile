@@ -6,7 +6,7 @@
 #    By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 09:33:17 by tbornema          #+#    #+#              #
-#    Updated: 2023/11/24 12:43:39 by tbornema         ###   ########.fr        #
+#    Updated: 2023/11/27 12:50:54 by tbornema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC_FILES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 RM	= rm -f
 CC	= gcc
-CFLAGS	= -Wall -Wextra -Werror -g
+#CFLAGS	= -Wall -Wextra -Werror -g
 MLXFLAGS = -L./minilibx-linux -lmlx -lXext -lX11
 INCS	= -I ./libft -I ./minilibx-linux
 LIBFT	= -Llibft -lft
@@ -28,7 +28,7 @@ ${OBJ_DIR}/%.o: $(SRC_DIR)/%.c include/fractol.h | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 ${NAME}: runlibft $(OBJ)
-	@${CC} ${OBJ} ${CFLAGS} ${LIBFT} ${MLXFLAGS} -o $@
+	@${CC} ${OBJ} ${CFLAGS} ${LIBFT} ${MLXFLAGS} -lm -o $@
 	@echo "Compiling Done!"
 
 $(OBJ_DIR):

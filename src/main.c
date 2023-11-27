@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:32:24 by tbornema          #+#    #+#             */
-/*   Updated: 2023/11/24 13:40:11 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:59:03 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,24 @@ int	main(int argc, char *argv[])
 {
 	t_fractol fractol;
 
+	fractol.zoom = 0.005;
+	fractol.center.real = 0.0;
+	fractol.center.unreal = 0.0;
+
 	if ((argc == 2  && !ft_strncmp(argv[1], "mandelbrot", 10))
 		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
-		// fractol.name = argv[1];
-		// if (!ft_strncmp(fractol.name, "julia", 5))
-		// {
-		// 	fractol.julia_x = ft_atoi(argv[2]);
-		// 	fractol.julia_y = ft_atoi(argv[3]);
-		// }
+		fractol.name = argv[1];
+		if (!ft_strncmp(fractol.name, "julia", 5))
+		{
+			fractol.julia_x = ft_atod(argv[2]);
+			fractol.julia_y = ft_atod(argv[3]);
+		}
+		
 		open_window(&fractol);
+		mlx_mouse_hook(fractol.window, ft_mouse_hook, &fractol);
+    	mlx_key_hook(fractol.window, ft_key_hook, &fractol);
+		
 		ft_render_fractal(&fractol);
 		mlx_loop(fractol.mlx);
 	}

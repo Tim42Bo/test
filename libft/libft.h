@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:35:34 by tbornema          #+#    #+#             */
-/*   Updated: 2023/10/12 12:45:42 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:53:01 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <limits.h>
 
 int			ft_atoi(const char *nptr);
+double		ft_atod(const char *nptr);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
 int			ft_isalpha(int c);
