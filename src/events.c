@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:57:39 by tbornema          #+#    #+#             */
-/*   Updated: 2023/11/27 15:19:23 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/12/14 13:24:54 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	ft_mouse_hook(int button, int x, int y, t_fractol *fractol)
 			fractol->zoom *= 1.1; //zoom in
 		if (button == 5)
 			fractol->zoom *= 0.9; //zoom out
-		fractol->center.real += (x - WIDTH / 2) * fractol->zoom;
-		fractol->center.unreal += (y - HEIGHT / 2) * fractol->zoom;
+
 	}
 	printf("ZOOM-LVL in Mousehook: %.20f\n", fractol->zoom);
 	ft_render_fractal(fractol);
