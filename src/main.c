@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:32:24 by tbornema          #+#    #+#             */
-/*   Updated: 2023/11/27 17:09:23 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:33:32 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,6 @@ void	open_window(t_fractol *fractol)
 		mlx_destroy_display(fractol->mlx);
 		free(fractol->mlx);
 		exit(1);
-	}
-}
-
-void	draw_rectangle(t_fractol *fractol, int color1, int color2)
-{
-	int	x;
-	int	y;
-	
-	y = 0;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			if (x > 400)
-				mlx_pixel_put(fractol->mlx, fractol->window, x, y, color2);
-			else
-				mlx_pixel_put(fractol->mlx, fractol->window, x, y, color1);
-			x++;
-		}
-		y++;
 	}
 }
 
@@ -82,3 +61,11 @@ int	main(int argc, char *argv[])
 	}
 	return (0);
 }
+
+/*c = -0.4 + 0.6i
+c = 0.285 + 0i
+c = 0.285 + 0.01i
+c = -0.8 + 0.156i
+c = -0.70176 - 0.3842i
+c = -0.835 - 0.2321i
+c = -0.8 + 0.156i*/

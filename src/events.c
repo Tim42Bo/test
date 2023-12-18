@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:57:39 by tbornema          #+#    #+#             */
-/*   Updated: 2023/12/14 13:24:54 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:36:02 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,20 @@ int	ft_mouse_hook(int button, int x, int y, t_fractol *fractol)
 	return (0);
 }
 
-int ft_quit(t_fractol *fractol)
+void ft_quit(t_fractol *fractol)
 {
-	mlx_destroy_image(fractol->mlx,	fractol->imgage.img_ptr);
-	mlx_destroy_window(fractol->mlx,fractol->window);
-	mlx_destroy_display(fractol->mlx);
-	free(fractol->mlx);
-	exit(0);
+    if (fractol)
+    {
+        if (fractol->mlx && fractol->imgage.img_ptr)
+        {
+            mlx_destroy_image(fractol->mlx, fractol->imgage.img_ptr);
+        }
+        if (fractol->mlx && fractol->window)
+        {
+            mlx_destroy_window(fractol->mlx, fractol->window);
+        }
+    }
+    exit(0);
 }
 
 int ft_key_hook(int keycode, t_fractol *fractol)

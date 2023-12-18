@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:11:13 by tbornema          #+#    #+#             */
-/*   Updated: 2023/12/14 13:25:17 by tbornema         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:32:15 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,6 @@ typedef struct s_complex
 typedef struct s_img
 {
     void *img_ptr; // Pointer to the image
-    char *addr; // Address of the image
-    int bpp; // Bits per pixel
-    int line_length; // Length of a line in the image
-    int endian; // Endianess of the image
 } t_img;
 
 // Fractol structure
@@ -88,7 +84,6 @@ typedef struct s_fractol
 	char *name;
 	t_complex center;
     t_img imgage; // Image structure
-    // ... other fractal-specific parameters ...
 } t_fractol;
 
 // Function prototypes
@@ -100,6 +95,6 @@ int	ft_mandelbrot(t_complex c, int max_iter);
 int ft_julia(t_complex z, t_complex c, int max_iter);
 int	ft_mouse_hook(int button, int x, int y, t_fractol *fractol);
 int ft_key_hook(int keycode, t_fractol *fractol);
-// ... other function prototypes ...
+double  ft_map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 
 #endif
