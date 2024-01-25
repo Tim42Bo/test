@@ -6,7 +6,7 @@
 #    By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/24 09:33:17 by tbornema          #+#    #+#              #
-#    Updated: 2023/11/27 12:50:54 by tbornema         ###   ########.fr        #
+#    Updated: 2024/01/16 16:17:09 by tbornema         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ VALGRIND = valgrind --leak-check=full --track-origins=yes
 
 ${OBJ_DIR}/%.o: $(SRC_DIR)/%.c include/fractol.h | $(OBJ_DIR)
 	@echo "Compiling: $<"
-	@$(CC) $(CFLAGS) $(INCS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCS) -c $< -o $@ -Ofast
 
 ${NAME}: runlibft $(OBJ)
 	@${CC} ${OBJ} ${CFLAGS} ${LIBFT} ${MLXFLAGS} -lm -o $@

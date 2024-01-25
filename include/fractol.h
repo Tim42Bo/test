@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:11:13 by tbornema          #+#    #+#             */
-/*   Updated: 2023/12/18 14:32:15 by tbornema         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:09:55 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 // Constants
 #define WIDTH 800
 #define HEIGHT 800
-#define MAX_ITER 2000
+#define MAX_ITER 1000
 
 // EVENTS
 #define BASE_MOVE 0.0001
@@ -83,7 +83,7 @@ typedef struct s_fractol
 	double	mandel_y;
 	char *name;
 	t_complex center;
-    t_img imgage; // Image structure
+    t_img image; // Image structure
 } t_fractol;
 
 // Function prototypes

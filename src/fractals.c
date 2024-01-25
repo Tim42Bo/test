@@ -6,7 +6,7 @@
 /*   By: tbornema <tbornema@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:19:51 by tbornema          #+#    #+#             */
-/*   Updated: 2023/12/18 14:34:01 by tbornema         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:10:13 by tbornema         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void ft_render_fractal(t_fractol *fractol)
                 color = ft_get_color(ft_mandelbrot(c, MAX_ITER));
             }
 
-            mlx_pixel_put(fractol->mlx, fractol->window, x, y, color);
+            mlx_pixel_put(fractol->mlx, fractol->img_ptr, x, y, color);
             x++;
         }
         y++;
